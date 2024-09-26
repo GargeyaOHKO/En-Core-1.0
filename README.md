@@ -9,6 +9,7 @@ This project involves designing a non-isolated buck converter that steps down a 
 - **Input Voltage (Vin):** 24V (±2% tolerance)
 - **Output Voltage (Vout):** 5V (±0.01V)
 - **Input Current:** 1A max
+- **Maximum Output Current:** 4.32A
 - **Efficiency:** ≥ 90%
 - **Form Factor:** Max PCB size of 10 cm x 5 cm
 
@@ -16,9 +17,9 @@ This project involves designing a non-isolated buck converter that steps down a 
 
 ## **Theoretical Background**
 A buck converter reduces the input voltage to a lower output voltage by switching a MOSFET on and off. The energy is stored in an inductor and smoothed out by a capacitor. The main components are:
-- **Schottky Diode (1N5817):** Minimizes losses.
-- **PWM Source (NE555 Timer):** Generates the switching signal.
-- **Inductor and Capacitor:** For energy storage and output voltage smoothing.
+- **Schottky Diode (1N5817):** The diode is forward biased when the NMOS is open switch, hence it allows the flow of current through it. When NMOS is closed, it is reverse biased, hence inductor starts storing energy. It also minimizes energy losses as compared to conventional diodes.
+- **PWM Source (NE555 Timer):** Generates the switching signal of frequency 500kHz and Duty cycle(20.8%) to switch the circuit between input voltage and Schottky Diode.
+- **Inductor and Capacitor:** For storing energy in the form of magnetic field and powering the circuit when NMOS is open switch, an inductor is used with ripple current = 0.2 * I_maxout. The capacitor is used for output voltage smoothing.
 
 ### **Efficiency Calculation:**
 Efficiency depends on losses in the MOSFET (switching and conduction losses), inductor, and other components.
