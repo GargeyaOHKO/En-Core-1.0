@@ -1,5 +1,3 @@
-Here’s a summarized **GitHub README** for your buck converter design project based on the document:
-
 ---
 
 # **Buck Converter Design: En-Core 1.0**
